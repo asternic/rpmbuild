@@ -42,6 +42,8 @@ async function run() {
 
     // Copy spec file from path specFile to /root/rpmbuild/SPECS/
     await exec.exec(`cp /github/workspace/${specFile} /github/home/rpmbuild/SPECS/`);
+    await exec.exec(`cp /github/workspace/build/4.0/patches/* /github/home/rpmbuild/SOURCES/`);
+    await exec.exec(`cp /github/workspace/build/4.0/files/* /github/home/rpmbuild/SOURCES/`);
 
     // Dowload tar.gz file of source code,  Reference : https://developer.github.com/v3/repos/contents/#get-archive-link
     await exec.exec(`curl -L --output tmp.tar.gz https://api.github.com/repos/${owner}/${repo}/tarball/${ref}`)
