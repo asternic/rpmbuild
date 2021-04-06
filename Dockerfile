@@ -6,7 +6,7 @@ COPY . .
 
 # Installing tools needed for rpmbuild , 
 # depends on BuildRequires field in specfile, (TODO: take as input & install)
-RUN yum install -y rpm-build rpmdevtools gcc make coreutils python autoconf gcc-c++ automake m4 libtool libpcap-devel
+RUN yum install -y rpm-build rpmdevtools gcc make coreutils python autoconf gcc-c++ automake m4 libtool libpcap-devel dotconf-devel libnetfilter_queue-devel libnfnetlink-devel openssl-devel ldns-devel
 
 # Setting up node to run our JS file
 # Download Node Linux binary
