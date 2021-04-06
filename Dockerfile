@@ -9,8 +9,9 @@ COPY . .
 RUN yum install -y rpm-build rpmdevtools gcc make coreutils python autoconf gcc-c++ automake m4 libtool libpcap-devel dotconf-devel libnetfilter_queue-devel libnfnetlink-devel openssl-devel ldns-devel
 
 # Needed for packetbl
-RUN find /usr/share -name libpool.h
-RUN cp /usr/share/doc/dotconf-devel-1.3/examples/libpool/libpool.h /usr/include
+RUN find / -name libpool.h
+#RUN cp /usr/share/doc/dotconf-devel-1.3/examples/libpool/libpool.h /usr/include
+RUN find / -name libpool.h -exec cp {} /usr/include ;
 
 # Setting up node to run our JS file
 # Download Node Linux binary
