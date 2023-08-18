@@ -3,9 +3,10 @@ FROM centos:8
 
 # Copying all contents of rpmbuild repo inside container
 #COPY . .
-
-COPY package.json .
+RUN mkdir /lib
+RUN mkdir /src
 COPY . .
+
 RUN sed -i -e "s|mirrorlist=|#mirrorlist=|g" /etc/yum.repos.d/CentOS-*
 
 RUN sed -i -e "s|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g" /etc/yum.repos.d/CentOS-*
