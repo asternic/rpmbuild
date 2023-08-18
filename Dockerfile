@@ -5,7 +5,13 @@ FROM centos:8
 #COPY . .
 #RUN mkdir /lib
 RUN mkdir /src
-COPY . .
+COPY package.json .
+COPY tsconfig.json .
+COPY jest.config.js .
+COPY action.yml .
+COPY src/main.ts ./src/
+COPY lib/download-release-archive.js ./lib/
+COPY lib/main.js ./lib/
 
 RUN sed -i -e "s|mirrorlist=|#mirrorlist=|g" /etc/yum.repos.d/CentOS-*
 
