@@ -37,7 +37,8 @@ RUN tar --strip-components 1 -xvf node-v* -C /usr/local
 
 # Install all dependecies to execute main.js
 # RUN npm install --production && npm run-script build
-RUN npm install --omit=dev && npm run-script build
+RUN npm ci 
+RUN npm run-script build
 
 
 # All remaining logic goes inside main.js , 
