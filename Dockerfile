@@ -25,7 +25,7 @@ RUN dnf clean all
 
 # Installing tools needed for rpmbuild , 
 # depends on BuildRequires field in specfile, (TODO: take as input & install)
-RUN yum install -y --skip-broken rpm-build rpmdevtools gcc make coreutils python36 git
+RUN yum install -y --skip-broken rpm-build rpmdevtools gcc make coreutils python36 git php php-cli
 
 # Setting up node to run our JS file
 # Download Node Linux binary
