@@ -5,6 +5,8 @@ FROM centos:8
 #COPY . .
 #RUN mkdir /lib
 RUN mkdir /src
+COPY .gitignore .
+COPY .prettierrc.json .
 COPY package.json .
 COPY tsconfig.json .
 COPY jest.config.js .
