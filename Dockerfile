@@ -2,7 +2,7 @@
 FROM centos:8
 
 # Copying all contents of rpmbuild repo inside container
-COPY . .
+# COPY . .
 
 # Installing tools needed for rpmbuild , 
 # depends on BuildRequires field in specfile, (TODO: take as input & install)
