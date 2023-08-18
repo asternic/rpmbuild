@@ -8,7 +8,9 @@ RUN sed -i -e "s|mirrorlist=|#mirrorlist=|g" /etc/yum.repos.d/CentOS-*
 
 RUN sed -i -e "s|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g" /etc/yum.repos.d/CentOS-*
 
-RUN dnf -y swap centos-linux-repos centos-stream-repos
+RUN dnf clean all
+
+# RUN dnf -y swap centos-linux-repos centos-stream-repos
 
 # Installing tools needed for rpmbuild , 
 # depends on BuildRequires field in specfile, (TODO: take as input & install)
