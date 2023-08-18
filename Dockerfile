@@ -3,7 +3,7 @@ FROM centos:8
 
 # Copying all contents of rpmbuild repo inside container
 #COPY . .
-RUN mkdir /lib
+#RUN mkdir /lib
 RUN mkdir /src
 COPY . .
 
