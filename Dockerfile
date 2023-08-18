@@ -36,7 +36,7 @@ RUN curl -O https://nodejs.org/dist/v18.17.1/node-v18.17.1-linux-x64.tar.xz
 RUN tar --strip-components 1 -xvf node-v* -C /usr/local
 
 # Install all dependecies to execute main.js
-RUN npm install tsc
+RUN npm install typescript
 RUN npm i --save-dev @types/node
 RUN npm install --production --package-lock-only && npm run-script build
 #RUN npm ci 
