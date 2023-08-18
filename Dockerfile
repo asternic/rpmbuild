@@ -29,14 +29,14 @@ RUN yum install -y --skip-broken rpm-build rpmdevtools gcc make coreutils python
 
 # Setting up node to run our JS file
 # Download Node Linux binary
-RUN curl -O https://nodejs.org/dist/v12.16.1/node-v12.16.1-linux-x64.tar.xz
+#RUN curl -O https://nodejs.org/dist/v12.16.1/node-v12.16.1-linux-x64.tar.xz
+RUN curl -O https://nodejs.org/dist/v18.17.1/node-v18.17.1-linux-x64.tar.xz
 
 # Extract and install
 RUN tar --strip-components 1 -xvf node-v* -C /usr/local
 
 # Install all dependecies to execute main.js
-RUN npm install --production \
-&& npm run-script build
+RUN npm install --production && npm run-script build
 
 # All remaining logic goes inside main.js , 
 # where we have access to both tools of this container and 
