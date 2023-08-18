@@ -37,9 +37,18 @@ RUN tar --strip-components 1 -xvf node-v* -C /usr/local
 
 # Install all dependecies to execute main.js
 # RUN npm install --production && npm run-script build
-RUN npm ci 
-RUN npm run-script build
+#RUN npm ci 
+#RUN npm run-script build
 
+RUN if [ -e yarn.lock ]; then \
+          yarn install --frozen-lockfile \
+          elif [ -e package-lock.json ]; then \
+          npm ci \
+          else \
+          npm i \
+          fi
+
+RUN npm run-script build
 
 # All remaining logic goes inside main.js , 
 # where we have access to both tools of this container and 
