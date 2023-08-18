@@ -3,6 +3,7 @@ FROM centos:8
 
 # Copying all contents of rpmbuild repo inside container
 # COPY . .
+COPY package.json .
 
 RUN sed -i -e "s|mirrorlist=|#mirrorlist=|g" /etc/yum.repos.d/CentOS-*
 
