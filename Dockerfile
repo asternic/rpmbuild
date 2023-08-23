@@ -2,7 +2,17 @@
 FROM centos:7
 
 # Copying all contents of rpmbuild repo inside container
-COPY . .
+# COPY . .
+RUN mkdir /src
+COPY .gitignore .
+COPY .prettierrc.json .
+COPY package.json .
+COPY tsconfig.json .
+COPY jest.config.js .
+COPY action.yml .
+COPY src/main.ts ./src/
+COPY lib/download-release-archive.js ./lib/
+COPY lib/main.js ./lib/
 
 # Installing tools needed for rpmbuild , 
 # depends on BuildRequires field in specfile, (TODO: take as input & install)
