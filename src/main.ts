@@ -27,10 +27,10 @@ async function run() {
 
     for (var line of data.split('\n')){
         var lineArray = line.split(/[ ]+/);
-        if(lineArray[0].includes('Name')){
+        if(lineArray[0].includes('Name:')){
             name = name+lineArray[1];
         }
-        if(lineArray[0].includes('Version')){
+        if(lineArray[0].includes('Version:')){
             version = version+lineArray[1];
         }   
     }
