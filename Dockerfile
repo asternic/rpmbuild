@@ -23,6 +23,9 @@ RUN dnf clean all
 
 # RUN dnf -y swap centos-linux-repos centos-stream-repos
 
+# dnf-plugins-core
+RUN yum config-manager --set-enabled PowerTools
+
 # Installing tools needed for rpmbuild , 
 # depends on BuildRequires field in specfile, (TODO: take as input & install)
 RUN yum install -y --skip-broken rpm-build rpmdevtools gcc make coreutils python36 git php php-cli yum-utils autoconf gcc-c++ automake m4 libtool libpcap-devel dotconf-devel libnetfilter_queue-devel libnfnetlink-devel openssl-devel ldns-devel
