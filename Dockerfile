@@ -24,8 +24,9 @@ RUN dnf clean all
 # RUN dnf -y swap centos-linux-repos centos-stream-repos
 
 # dnf-plugins-core
+RUN yum repolist
 RUN yum install -y dnf-plugins-core
-RUN yum config-manager --set-enabled PowerTools
+RUN yum config-manager --set-enabled powertools
 
 # Installing tools needed for rpmbuild , 
 # depends on BuildRequires field in specfile, (TODO: take as input & install)
