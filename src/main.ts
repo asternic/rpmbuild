@@ -61,6 +61,8 @@ async function run() {
     // Copy tar.gz file to source path
     await exec.exec(`cp ${name}-${version}.tar.gz /github/home/rpmbuild/SOURCES/`);
 
+    await exec.exec(`yum-builddep -y ${specFile.destFullPath}`);
+
     // Execute rpmbuild , -ba generates both RPMS and SPRMS
     try {
       await exec.exec(
