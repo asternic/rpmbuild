@@ -42,6 +42,7 @@ async function run() {
 
     // Copy spec file from path specFile to /root/rpmbuild/SPECS/
     await exec.exec(`cp /github/workspace/${specFile} /github/home/rpmbuild/SPECS/`);
+    await exec.exec(`find /github/workspace`);
     await exec.exec(`cp /github/workspace/build/5.0/patches/* /github/home/rpmbuild/SOURCES/`);
     await exec.exec(`cp /github/workspace/build/5.0/files/* /github/home/rpmbuild/SOURCES/`);
 
