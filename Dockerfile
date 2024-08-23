@@ -14,6 +14,11 @@ COPY src/main.ts ./src/
 COPY lib/download-release-archive.js ./lib/
 COPY lib/main.js ./lib/
 
+RUN	set -x && \
+	sed -i 's/mirror.centos.org/vault.centos.org/g' /etc/yum.repos.d/*.repo && \
+	sed -i 's/^#.*baseurl=http/baseurl=http/g' /etc/yum.repos.d/*.repo && \
+	sed -i 's/^mirrorlist=http/#mirrorlist=http/g' /etc/yum.repos.d/*.repo
+
 # Installing tools needed for rpmbuild , 
 # depends on BuildRequires field in specfile, (TODO: take as input & install)
 RUN yum install -y rpm-build rpmdevtools gcc make coreutils python autoconf gcc-c++ automake m4 libtool libpcap-devel dotconf-devel libnetfilter_queue-devel libnfnetlink-devel openssl-devel ldns-devel
